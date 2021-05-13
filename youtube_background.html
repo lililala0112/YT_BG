@@ -201,7 +201,7 @@ function onYouTubeIframeAPIReady() {
 	},
 	events: {
 	  'onReady': onPlayerReady,
-	  'onStateChange': function(e){
+	  onStateChange: function(e){
             if (e.data === YT.PlayerState.ENDED) {
                 player.playVideo(); 
             }
