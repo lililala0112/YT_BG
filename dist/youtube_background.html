@@ -161,7 +161,9 @@ body {
 	};
 	$.fn.exists = function() {
 		return this.length > 0;
-	};
+	};	
+})(jQuery);
+
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -189,8 +191,6 @@ function onPlayerReady(event) {
    event.target.mute();
   event.target.playVideo();
 }
-	
-})(jQuery);
 </script>
 </body>
 </html>
