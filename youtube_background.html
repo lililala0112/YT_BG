@@ -188,7 +188,6 @@ function onYouTubeIframeAPIReady() {
           controls: 0,
           disablekb: 1,
           fs: 0,
-          hl: 'pt-br',
           modestbranding: 1,
           showinfo: 0,
           autohide: 1,
@@ -197,15 +196,11 @@ function onYouTubeIframeAPIReady() {
           theme: 'light',
           playsinline:1,
           start:50,
-          end:5000
+          end:5000,
+		  playlist:QsrGHoI8U1g
 	},
 	events: {
-	  'onReady': onPlayerReady,
-	  onStateChange: function(e){
-            if (e.data === YT.PlayerState.ENDED) {
-                player.playVideo(); 
-            }
-          }
+	  'onReady': onPlayerReady
 	}
   });
 }
