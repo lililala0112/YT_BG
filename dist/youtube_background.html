@@ -112,58 +112,6 @@ body {
     /*
 	This script is based on the iframeResize-Pen (https://codepen.io/Codepalm/pen/XLzbrO) and adds the align-Plugin for jQuery
 */
-(function($) {
-	
-	$( document ).ready( function() {
-		$( window ).resize( function() {
-			iframeResize();
-		});
-		iframeResize();
-	});
-	
-	function iframeResize() {
-		var iframes = $( 'iframe[data-scaling="true"]' );
-		if( iframes.exists() ) {
-			iframes.each( function() {
-				let iframe = $( this );
-				let videoFormat = '16:9';
-				if( typeof iframe.attr( 'data-format' ) !== "undefined" && iframe.attr( 'data-format' ).includes( ':' ) )
-					videoFormat = iframe.attr( 'data-format' );
-				iframe.rescale( videoFormat );
-				iframe.iframeCenterAlign();
-				
-			});
-		}
-	}
-	
-	$.fn.iframeCenterAlign = function() {
-
-		var wrapperWidth = this.parent().width();
-		var iframeWidth = this.width();
-		var leftMargin = ( wrapperWidth - iframeWidth ) / 2;
-		
-		var wrapperHeight = this.parent().height();
-		var iframeHeight = this.height();
-		var topMargin = ( wrapperHeight - iframeHeight ) / 2;
-		
-		this.parent().css({ 'left': leftMargin+'px', 'top': topMargin+'px' });
-	
-	}
-	$.fn.rescale = function( format ) {
-		let formatWidth = parseInt( format.split(':')[0] );
-		let formatHeight = parseInt( format.split(':')[1] );
-		let formatRatio = formatHeight / formatWidth;
-		
-		let currentWidth = this.width();
-		let newHeight = formatRatio * currentWidth;
-		
-		this.height( Math.round( newHeight ) );
-	};
-	$.fn.exists = function() {
-		return this.length > 0;
-	};	
-})(jQuery);
-
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
